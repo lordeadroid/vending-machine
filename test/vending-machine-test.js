@@ -2,7 +2,7 @@ const testing = require("../lib/testing-framework.js");
 const values = require("../src/vending-machine.js");
 
 const toVend = function () {
-  console.log("\nTest cases for vending whole number coins\n");
+  console.log("\nTest cases for vending coins\n");
 
   testing.assertEquals(values.vend([1], 1), 1, "For amount 1 with denomination of 1 it should return 1 coins");
   testing.assertEquals(values.vend([2], 2), 1, "For amount 2 with denomination of 2 it should return 1 coins");
