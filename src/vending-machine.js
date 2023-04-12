@@ -1,5 +1,5 @@
-const zero = 0;
-const one = 1;
+const vend = function (amount) {
+  return amount;
+}
 
-exports.zero = zero;
-exports.one = one;
+exports.vend = vend;
