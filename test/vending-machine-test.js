@@ -12,6 +12,7 @@ const toVend = function () {
   testing.assertEquals(values.vend([5], 10), 2, "For amount 10 with denomination of 5 it should return 2 coins");
   testing.assertEquals(values.vend([10], 10), 1, "For amount 10 with denomination of 10 it should return 1 coins");
   testing.assertEquals(values.vend([1, 2, 5, 10], 18), 4, "For amount 18 with denomination of 1, 2, 5 & 10 it should return 4 coins");
+  testing.assertEquals(values.vend([1, 4, 7], 13), 4, "For amount 13 with denomination of 1, 4 & 7 it should return 4 coins");
 }
 
 toVend();
