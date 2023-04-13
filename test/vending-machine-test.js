@@ -13,6 +13,8 @@ const toVend = function () {
   testing.assertEquals(values.vend([10], 10), 1, "For amount 10 with denomination of 10 it should return 1 coins");
   testing.assertEquals(values.vend([1, 4, 7], 13), 4, "For amount 13 with denomination of 1, 4 & 7 it should return 4 coins");
   testing.assertEquals(values.vend([1, 7, 4], 13), 4, "For amount 13 with denomination of 1, 7 & 4 it should return 4 coins");
+  testing.assertEquals(values.vend([10, 5, 1, 3], 19), 4, "For amount 19 with denomination of 10, 5, 1 & 3 it should return 4 coins");
+  testing.assertEquals(values.vend([10, 5, 1, 3], 21), 3, "For amount 21 with denomination of 10, 5, 1 & 3 it should return 3 coins");
 
   console.log("\nTest cases for minimun element\n");
 
