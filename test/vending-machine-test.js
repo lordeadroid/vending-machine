@@ -14,8 +14,15 @@ const toVend = function () {
   testing.assertEquals(values.vend([1, 4, 7], 13), 4, "For amount 13 with denomination of 1, 4 & 7 it should return 4 coins");
   testing.assertEquals(values.vend([1, 7, 4], 13), 4, "For amount 13 with denomination of 1, 7 & 4 it should return 4 coins");
 
+  console.log("\nTest cases for minimun element\n");
+
   testing.assertEquals(values.minElement([1, 2]), 1, "For [1, 2] is should return 1");
   testing.assertEquals(values.minElement([3, 2]), 2, "For [3, 2] is should return 2");
+
+  console.log("\nTest cases for minSort\n");
+
+  testing.assertArrays(values.minSort([1]), [1], "Array of one element should return the same element");
+  testing.assertArrays(values.minSort([1, 2]), [1, 2], "An sorted array should return the same array");
 }
 
 toVend();

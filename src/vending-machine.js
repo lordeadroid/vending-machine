@@ -37,4 +37,5 @@ const dispenseCoins = function (denominations, amount) {
 }
 
 exports.vend = dispenseCoins;
+exports.minSort = minSort;
 exports.minElement = minElement;
