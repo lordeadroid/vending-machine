@@ -1,23 +1,31 @@
-const minElement = function (numbers) {
-  let min = numbers[0];
+const numberOfCoins = function (amount, currentCoin) {
+  return Math.floor(amount / currentCoin);
+}
+
+const newAmount = function (amount, currentCoin) {
+  return amount % currentCoin;
+}
+
+const maxElement = function (numbers) {
+  let max = numbers[0];
 
   for (let index = 0; index < numbers.length; index++) {
-    if (min > numbers[index]) {
-      min = numbers[index];
+    if (max < numbers[index]) {
+      max = numbers[index];
     }
   }
 
-  return min;
+  return max;
 }
 
-const minSort = function (numbers) {
+const maxSort = function (numbers) {
   let sorted = [];
   let unsorted = numbers.slice();
 
   while (unsorted.length !== 0) {
-    let min = minElement(unsorted);
-    sorted.push(min);
-    let index = unsorted.indexOf(min);
+    let max = maxElement(unsorted);
+    sorted.push(max);
+    let index = unsorted.indexOf(max);
     unsorted.splice(index, 1);
   }
 
@@ -26,9 +34,9 @@ const minSort = function (numbers) {
 
 const dispenseCoins = function (denominations, amount) {
   let totalCoins = 0;
+  let coins = maxSort(denominations);
 
-  for (let index = 0, coins = minSort(denominations); index < denominations.length; index++) {
-    const currentCoin = coins.pop();
+  for (const currentCoin in coins) {
     totalCoins += Math.floor(amount / currentCoin);
     amount = amount % currentCoin;
   }
@@ -36,6 +44,19 @@ const dispenseCoins = function (denominations, amount) {
   return totalCoins;
 }
 
+const coinsWithName = function (denominations, totalAmount) {
+  const nameCoins = [];
+  const coins = maxSort(denominations);
+  let amount = totalAmount;
+
+  for (let coin of coins) {
+    nameCoins.push(coin.toString());
+    nameCoins.push(numberOfCoins(amount, coin));
+    amount = newAmount(amount, coin);
+  }
+
+  return nameCoins;
+}
+
+exports.notesVend = coinsWithName;
 exports.vend = dispenseCoins;
-exports.minSort = minSort;
-exports.minElement = minElement;
